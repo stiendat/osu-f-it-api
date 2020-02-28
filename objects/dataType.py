@@ -11,6 +11,12 @@ class User(object):
     accuracy = int()
     elo = int()
 
+class _tourSetting(object):
+    scorev = 2
+    gameType = gameType.TEAM_VS
+    numRound = int()
+    winCondition = int()
+
 class Tournament(object):
     tourID = int()
     tourName = str()
@@ -18,13 +24,6 @@ class Tournament(object):
     tourTeamList = list()
     tourSetting = _tourSetting()
     tourCreateDate = date.today().isoformat()
-    
-
-class _tourSetting(object):
-    scorev = 2
-    gameType = gameType.TEAM_VS
-    numRound = int()
-    winCondition = int()
 
 class Match(object):
     matchID = int()
@@ -48,3 +47,23 @@ class Team(object):
     user4 = User()
     user5 = User()
     user6 = User()
+
+class Config(object):
+    class redis(object):
+        host = str()
+        port = int()
+        username = str()
+        password = str()
+    
+    class mysql(object):
+        host = str()
+        port = int()
+        username = str()
+        password = str()
+
+    class peppy(object):
+        baseUrl = str()
+        cheesegullAPI = str()
+
+    class discord(object):
+        secretKey = str()

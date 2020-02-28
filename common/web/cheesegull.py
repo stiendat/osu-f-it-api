@@ -1,10 +1,9 @@
 import requests
 import json
 
-from constants import exceptions
+from objects import exceptions
 from objects import glob
-from common.log import logUtils as log
-from objects import glob
+from helpers import logger as log
 
 def cheesegullRequest(handler, requestType="GET", key="", params=None, mustHave=None, wants=None):
 	"""
@@ -37,7 +36,7 @@ def cheesegullRequest(handler, requestType="GET", key="", params=None, mustHave=
 	else:
 		f = requests.get
 		getParams = params
-	result = f("{}/{}".format(glob.conf.config["cheesegull"]["apiurl"], handler), params=getParams, data=postData, headers= {
+	result = f("{}/{}".format(glob.CONFIG.peppy.cheesegullAPI, handler), params=getParams, data=postData, headers= {
 		"Authorization": key
 	})
 
